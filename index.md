@@ -4,3 +4,4 @@
 |---|---|
 |000_dynamic_array.py | Design Dynamic Array (Resizable Array) |
 |001_linked_list.py | Design Singly Linked List   |
+|002_contains_duplicate.py| Contains Duplicate |
