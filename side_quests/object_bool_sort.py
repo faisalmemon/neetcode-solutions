@@ -10,8 +10,8 @@ class Item:
         print(f'Data: {self.char} Bool: {self.result}')
 
 class DataStore:
-    def __init__(self, items:[Item] = []):
-        self.items = items
+    def __init__(self, items=None):
+        self.items = items if items is not None else []
 
     def add_item(self, item: Item):
         self.items.append(item)
@@ -30,7 +30,7 @@ class DataStore:
                 high -= 1
                 low -= 1
                 continue
-            if self.items[low].result == False:
+            if not self.items[low].result:
                 low -= 1
                 continue
             self.items[low], self.items[high] = self.items[high], self.items[low]
