@@ -38,10 +38,10 @@ class Solution1:
         nodes = []
         return overall_result
 
-    
+
 from typing import List
 
-class Solution:
+class Solution2:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for word in strs:
@@ -50,4 +50,23 @@ class Solution:
                 anagrams[key].append(word)
             else:
                 anagrams[key] = [word]
+        return list(anagrams.values())
+
+from collections import defaultdict
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        anagrams = defaultdict(list)
+        for word in strs:
+            count = [0] * 26 # list of lower case letter character counts a-z
+            for char in word:
+                count[ord(char) - ord("a")] += 1
+            # lists are mutable so cannot be keys, so convert into a tuple (which is hashable)
+            # then the tuple can be our key.
+            # Appending to a non-existant dictionary lookup is an error
+            # defaultdict handles this by calling the default factory (list) when this happens.
+            # So the append is then always going to append a list.
+            anagrams[tuple(count)].append(word)
+        # we want the words (dictionary values), not the keys that collect the words together
+        # we want the container to be a list of lists-of-words
         return list(anagrams.values())
