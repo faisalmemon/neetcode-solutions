@@ -8,6 +8,9 @@ class Item:
 
     def dump_item(self):
         print(f'Data: {self.char} Bool: {self.result}')
+    
+    def __repr__(self):
+        return f"Item('{self.char}', {self.result})"
 
 class DataStore:
     def __init__(self, items=None):
@@ -21,21 +24,32 @@ class DataStore:
             item.dump_item()
 
     def reorder(self):
-        high = len(self.items) - 1
-        if high == -1 or high == 0:
+        """
+        Reorders items in-place: False items first, True items last.
+        Maintains relative order of True items.
+        Time: O(n), Space: O(1)
+        """
+        if len(self.items) <= 1:
             return
+        
+        # Two-pointer approach: work backwards, swapping True items at 'low'
+        # with False items at 'high' to partition False items to the front
+        high = len(self.items) - 1
         low = high - 1
+        
         while low >= 0:
             if self.items[high].result:
+                # high points to True, skip it
                 high -= 1
                 low -= 1
-                continue
-            if not self.items[low].result:
+            elif not self.items[low].result:
+                # low points to False, skip it
                 low -= 1
-                continue
-            self.items[low], self.items[high] = self.items[high], self.items[low]
-            low -= 1
-            high -= 1
+            else:
+                # low=True, high=False: swap to move False item forward
+                self.items[low], self.items[high] = self.items[high], self.items[low]
+                low -= 1
+                high -= 1
 
 if __name__ == "__main__":
     store = DataStore()
