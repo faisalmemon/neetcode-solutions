@@ -13,27 +13,15 @@ class Node:
 
 class Solution:
 
-    nodes = []
-
-    def anagram_node_of(self, node) -> Node|None:
-        for candidate in self.nodes:
-            if node == candidate:
-                continue
-            if node.length != candidate.length:
-                continue
-            if node.sorted_characters == candidate.sorted_characters:
-                print(f"matched: {node.word} {candidate.word}")
-                return candidate
-        return None
-
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        nodes = []
         for item in strs:
-            self.nodes.append(Node(item))
-        for item in self.nodes:
+            nodes.append(Node(item))
+        for item in nodes:
             item.dump_node()
 
         companions = {}
-        for node in self.nodes:
+        for node in nodes:
             dict_key = ''.join(node.sorted_characters)
             if dict_key in companions:
                 companions[dict_key].append(node.word)
@@ -47,4 +35,5 @@ class Solution:
             if len(companions[item]) != 0:
                 overall_result.append(companions[item])
 
+        nodes = []
         return overall_result
