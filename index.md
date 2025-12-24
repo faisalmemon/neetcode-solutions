@@ -7,3 +7,4 @@
 |002_contains_duplicate.py| Contains Duplicate |
 |003_valid_anagram.py| Valid Anagram |
 |004_two_sum.py | Two Sum |
+|005_group_anagrams.py | Group Anagrams |
