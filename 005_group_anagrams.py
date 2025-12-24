@@ -11,7 +11,7 @@ class Node:
     def dump_node(self):
         print(f'word {self.word} characters {self.characters} sorted_characters {self.sorted_characters} length {self.length}')
 
-class Solution:
+class Solution1:
 
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         nodes = []
@@ -37,3 +37,17 @@ class Solution:
 
         nodes = []
         return overall_result
+
+    
+from typing import List
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        anagrams = {}
+        for word in strs:
+            key = ''.join(sorted(word))
+            if key in anagrams:
+                anagrams[key].append(word)
+            else:
+                anagrams[key] = [word]
+        return list(anagrams.values())
