@@ -8,3 +8,4 @@
 |003_valid_anagram.py| Valid Anagram |
 |004_two_sum.py | Two Sum |
 |005_group_anagrams.py | Group Anagrams |
+|006_top_k_freq_elements.py | Top K Frequent Elements |
