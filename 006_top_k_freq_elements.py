@@ -1,3 +1,6 @@
+from collections import defaultdict
+from typing import List
+
 class Solution1:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         freq_list = {} # dict number -> frequency
@@ -35,10 +38,8 @@ class Solution2:
         return overall_result
     
 
-from collections import defaultdict
-from typing import List
 
-class Solution:
+class Solution3:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         freq_dict = defaultdict(int)
         for num in nums:
@@ -50,3 +51,22 @@ class Solution:
         print(f'sorted_items {sorted_items}')
 
         return [item[0] for item in sorted_items[:k]]
+    
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = defaultdict(int) # key number, value occurrences
+        bucket = [[] for i in range(len(nums) + 1)] # ith list has freq i
+        for item in nums:
+            count[item] += 1
+        for key,v in count.items():
+            bucket[v].append(key)
+        
+        result = []
+
+        for item in bucket[::-1]:
+            for num in item:
+                result.append(num)
+                if len(result) == k:
+                    return result
+        
+        raise ValueError("result has wrong number of items")
