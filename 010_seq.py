@@ -1,4 +1,4 @@
-class Solution:
+class Solution0:
     def longestConsecutive(self, nums: List[int]) -> int:
         if len(nums) == 0:
             return 0
@@ -26,3 +26,20 @@ class Solution:
             biggest_range_so_far = high_ptr - low_ptr
         return biggest_range_so_far + 1
         
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        if len(nums) == 0:
+            return 0
+        if len(nums) == 1:
+            return 1
+        
+        set_of_nums = set(nums)
+        longest_seq_seen = 0
+        
+        for num in set_of_nums:
+            if (num - 1) not in set_of_nums:
+                local_list_length = 1
+                while (num + local_list_length) in set_of_nums:
+                    local_list_length += 1
+                longest_seq_seen = max(longest_seq_seen, local_list_length)
+        return longest_seq_seen
