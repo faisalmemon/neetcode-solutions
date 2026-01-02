@@ -13,3 +13,4 @@
 |008_prod_array_not_self.py | Product of Array Except Self |
 |009_sudoko.py | Valid Sudoku |
 |010_seq.py | Longest Consecutive Sequence |
+|011_valid_paren.py | Valid Parentheses |
