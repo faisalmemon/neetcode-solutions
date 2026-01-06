@@ -14,3 +14,4 @@
 |009_sudoko.py | Valid Sudoku |
 |010_seq.py | Longest Consecutive Sequence |
 |011_valid_paren.py | Valid Parentheses |
+|012_daily_temp.py | Daily Temperatures |
