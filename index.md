@@ -17,3 +17,4 @@
 |012_reverse_polish.py | Evaluate Reverse Polish Notation |
 |012_daily_temp.py | Daily Temperatures |
 |013_car_fleet.py | Car Fleet |
+|013_daily_temp.py | Daily Temperatures |
