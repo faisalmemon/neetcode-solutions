@@ -19,3 +19,4 @@
 |013_car_fleet.py | Car Fleet |
 |014_daily_temp.py | Daily Temperatures |
 |015_rect_histogram.py | Largest Rectangle In Histogram |
+|016_palindrome.py | Valid Palindrome |
