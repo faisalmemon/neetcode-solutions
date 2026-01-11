@@ -21,3 +21,4 @@
 |015_rect_histogram.py | Largest Rectangle In Histogram |
 |016_palindrome.py | Valid Palindrome |
 |017_sum_2.py | Two Integer Sum II |
+|018_sum_3.py | Three sum |
