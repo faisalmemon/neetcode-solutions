@@ -23,3 +23,4 @@
 |017_sum_2.py | Two Integer Sum II |
 |018_sum_3.py | Three sum |
 |019_most_water.py | Container With Most Water |
+|020_rain_water.py | Trapping Rain Water |
